@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Investment Advisor</title>
+</head>
+
+<body>
+
+<h2>📈 Investment Advisor</h2>
+
+<form method="POST" action="/investment">
+
+Monthly Income:
+<input type="number" name="income" required>
+
+<br><br>
+
+Risk Level:
+<select name="risk" required>
+<option value="low">Low Risk</option>
+<option value="medium">Medium Risk</option>
+<option value="high">High Risk</option>
+</select>
+
+<br><br>
+
+<button type="submit">Get Investment Advice</button>
+
+</form>
+
+{% if advice %}
+<h3>Advice: {{ advice }}</h3>
+{% endif %}
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

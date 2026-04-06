@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Learn Finance</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f5f5f5;
+    text-align:center;
+}
+
+.course-card{
+    display:inline-block;
+    background:white;
+    padding:20px;
+    margin:15px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+    width:250px;
+}
+
+button{
+    background:green;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>📘 Learn Finance & Earn Points</h1>
+
+<h2>⭐ Your Points: {{ points }}</h2>
+
+{% for course in courses %}
+
+<div class="course-card">
+
+    <h3>{{ course.name }}</h3>
+    <p>{{ course.description }}</p>
+
+    <!-- IMPORTANT: FORM NOT LINK -->
+    <form action="/complete_course/{{ course.id }}" method="POST">
+        <button type="submit">✅ Complete Course</button>
+    </form>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Financial Health Score</title>
+</head>
+
+<body>
+
+<h2>Financial Health Score AI 📊</h2>
+
+Income:<br>
+<input id="income"><br><br>
+
+Total Expense:<br>
+<input id="expense"><br><br>
+
+Savings:<br>
+<input id="savings"><br><br>
+
+<button onclick="calculate()">Calculate Score</button>
+
+<div id="result"></div>
+
+<script>
+
+function calculate(){
+
+fetch("/finance_score",{
+method:"POST",
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"
+},
+body:
+"income="+income.value+
+"&expense="+expense.value+
+"&savings="+savings.value
+})
+.then(res=>res.json())
+.then(data=>{
+result.innerHTML =
+"<h3>Score: "+data.score+"/100</h3>"+
+"<h3>"+data.status+"</h3>";
+});
+}
+
+</script>
+
+</body>
+</html>

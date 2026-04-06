@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Budget Planner</title>
+</head>
+
+<body>
+
+<h2>💰 AI Budget Planner</h2>
+
+<form method="POST">
+<input type="number" name="income" placeholder="Enter Monthly Income" required>
+<button type="submit">Generate Budget</button>
+</form>
+
+{% if budget %}
+
+<h3>Recommended Budget</h3>
+
+<p>Total Income: ₹{{ budget.income }}</p>
+<p>🏠 Needs (50%): ₹{{ budget.needs }}</p>
+<p>🎯 Wants (30%): ₹{{ budget.wants }}</p>
+<p>💵 Savings (20%): ₹{{ budget.savings }}</p>
+
+{% endif %}
+
+<br>
+<a href="/">Back to Dashboard</a>
+
+</body>
+</html>

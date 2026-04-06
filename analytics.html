@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Expense Analyzer</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background:#f4f6f8;
+            text-align:center;
+        }
+
+        h1{
+            color:#2c3e50;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin:20px;
+            border-radius:12px;
+            box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        table{
+            margin:auto;
+            border-collapse:collapse;
+            width:60%;
+        }
+
+        th,td{
+            border:1px solid #ccc;
+            padding:10px;
+        }
+
+        th{
+            background:#3498db;
+            color:white;
+        }
+
+        img{
+            margin-top:20px;
+            width:400px;
+        }
+
+        .back-btn{
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2ecc71;
+            color:white;
+            border:none;
+            border-radius:8px;
+            text-decoration:none;
+            display:inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>📊 Smart Expense Analyzer</h1>
+
+<div class="container">
+
+    <!-- TOTAL EXPENSE CARD -->
+    <div class="card">
+        <h2>💰 Total Expenses</h2>
+        <h1>₹ {{ total }}</h1>
+    </div>
+
+    <!-- CATEGORY TABLE -->
+    <div class="card">
+        <h2>Category Wise Spending</h2>
+
+        {% if categories %}
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Total Amount</th>
+            </tr>
+
+            {% for cat, amt in categories.items() %}
+            <tr>
+                <td>{{ cat }}</td>
+                <td>₹ {{ amt }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% else %}
+        <p>No expenses added yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- PIE CHART -->
+    {% if categories %}
+    <div class="card">
+        <h2>Expense Distribution</h2>
+        <img src="{{ url_for('static', filename='pie.png') }}">
+    </div>
+
+    <!-- BAR CHART -->
+    <div class="card">
+        <h2>Category Spending Chart</h2>
+        <img src="{{ url_for('static', filename='bar.png') }}">
+    </div>
+    {% endif %}
+
+    <a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

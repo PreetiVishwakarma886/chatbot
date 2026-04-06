@@ -1,0 +1,98 @@
+{
+  "intents": [
+
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "hii", "good morning", "good evening"],
+      "responses": [
+        "Hello! I am your Finance Advisor 💰 How can I help you today?",
+        "Hi there! Ask me anything about savings, investment or budgeting."
+      ]
+    },
+
+    {
+      "tag": "saving",
+      "patterns": [
+        "how to save money",
+        "saving tips",
+        "how can I save",
+        "ways to save money"
+      ],
+      "responses": [
+        "Try the 50-30-20 rule: Needs 50%, Wants 30%, Savings 20%.",
+        "Start automatic savings every month and avoid impulse spending."
+      ]
+    },
+
+    {
+      "tag": "budget",
+      "patterns": [
+        "make a budget",
+        "budget planning",
+        "how to manage budget",
+        "create budget"
+      ],
+      "responses": [
+        "List income and expenses first, then allocate savings before spending.",
+        "Track daily expenses using the Expense Tracker module."
+      ]
+    },
+
+    {
+      "tag": "investment",
+      "patterns": [
+        "where to invest",
+        "investment options",
+        "how to invest money",
+        "best investment"
+      ],
+      "responses": [
+        "You can invest in Mutual Funds, Fixed Deposits, or Stocks depending on risk level.",
+        "Start SIP investment for long-term wealth creation."
+      ]
+    },
+
+    {
+      "tag": "expense",
+      "patterns": [
+        "reduce expenses",
+        "control spending",
+        "track expenses",
+        "too much spending"
+      ],
+      "responses": [
+        "Track expenses daily and remove unnecessary subscriptions.",
+        "Check Expense Tracker to analyze your spending habits."
+      ]
+    },
+
+    {
+      "tag": "thanks",
+      "patterns": ["thank you", "thanks", "ok thanks"],
+      "responses": [
+        "You're welcome 😊",
+        "Happy to help with your finances!"
+      ]
+    },
+
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you"],
+      "responses": [
+        "Goodbye! Stay financially smart 💰",
+        "See you again! Keep saving!"
+      ]
+    },
+
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": [
+        "I am a Finance Advisor Chatbot. Please ask finance related questions.",
+        "I can help with savings, budgeting, investments, and expenses.",
+        "Try asking: How to save money?"
+      ]
+    }
+
+  ]
+}

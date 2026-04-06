@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Finance Advisor Dashboard</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: linear-gradient(to right,#1e3c72,#2a5298);
+    margin:0;
+    color:white;
+}
+
+.header{
+    text-align:center;
+    padding:25px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+/* CARD DESIGN */
+.card{
+    background:white;
+    color:black;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+a{
+    text-decoration:none;
+    color:black;
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* SPECIAL NOTIFICATION CARD */
+.notification{
+    grid-column:1/-1;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    color:white;
+}
+
+.notification h3{
+    margin:10px 0 5px;
+}
+
+.notification p{
+    font-size:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+    {% if message %}
+<p><b>🎙️ {{ message }}</b></p>
+{% endif %}
+ 
+<div class="header">
+💰 Finance Advisor AI Dashboard
+</div>
+
+<div class="container">
+
+<!-- ✅ DAILY FINANCE NOTIFICATION -->
+<div class="card notification" id="notification-box">
+
+<div class="icon">🔔</div>
+
+<h3>Daily Finance Notification</h3>
+
+<p id="notify-message">
+Loading smart finance insight...
+</p>
+
+</div>
+
+<a href="/chatbot">
+<div class="card">
+<div class="icon">🤖</div>
+<h3>Smart Chatbot</h3>
+<p>Ask Financial Questions</p>
+</div>
+</a>
+
+<a href="/expense_tracker">
+<div class="card">
+<div class="icon">💰</div>
+<h3>Expense Tracker</h3>
+<p>Track daily expenses</p>
+</div>
+</a>
+
+<a href="/expense_analysis">
+<div class="card">
+<div class="icon">📊</div>
+<h3>Smart Expense Analyzer</h3>
+<p>Analyze Your Spending Behaviour</p>
+</div>
+</a>
+
+<a href="/investment">
+<div class="card">
+<div class="icon">📈</div>
+<h3>Investment Advisor</h3>
+<p>Get Investment Suggestions</p>
+</div>
+</a>
+
+<a href="/quiz">
+<div class="card">
+<div class="icon">🧠</div>
+<h3>Finance Quiz</h3>
+<p>Test Financial Knowledge</p>
+</div>
+</a>
+
+<a href="/voice">
+<div class="card">
+<div class="icon">🎤</div>
+<h3>Voice Advisor AI</h3>
+<p>Talk With Finance Assistant</p>
+</div>
+</a>
+
+<a href="/health">
+<div class="card">
+<div class="icon">❤️</div>
+<h3>Financial Health Score</h3>
+<p>Check Your Financial Status</p>
+</div>
+</a>
+
+<a href="/ai_report">
+<div class="card">
+<div class="icon">📄</div>
+<h3>AI Financial Report</h3>
+<p>Generate Smart Finance Report</p>
+</div>
+</a>
+
+<a href="/expense_prediction">
+<div class="card">
+<div class="icon">📊</div>
+<h3>AI Expense Prediction</h3>
+<p>Predict Future Expenses using AI</p>
+</div>
+</a>
+
+<a href="/smart_advice">
+<div class="card">
+<div class="icon">🧠</div>
+<h3>Smart Expense Advice</h3>
+<p>AI Spending Recommendations</p>
+</div>
+</a>
+
+<a href="/budget_planner">
+<div class="card">
+<div class="icon">💰</div>
+<h3>AI Budget Planner</h3>
+<p>Create Smart Monthly Budget</p>
+</div>
+</a>
+
+<a href="/hidden_expense">
+<div class="card">
+<div class="icon">🕵️</div>
+<h3>Hidden Expense Detector</h3>
+<p>Find Money Leaks Automatically</p>
+</div>
+</a>
+
+<a href="/auto_savings">
+<div class="card">
+<div class="icon">🏦</div>
+<h3>Auto Savings</h3>
+<p>Automatic Round-Up Saving System</p>
+</div>
+</a>
+
+<a href="/scan_bill">
+<div class="card">
+<div class="icon">🧾</div>
+<h3>Bill Scanner</h3>
+<p>Auto Add Expense from Receipt</p>
+</div>
+</a>
+<div>
+<a href="/secure_me">
+    <button style="background:red;color:white;padding:10px;">
+        🚨 Secure Me
+    </button>
+</a>
+</br> </br>
+ <a href="/voice">
+    <button>🎙️ Voice Financial Assistant</button>
+</a>
+</br> </br>
+
+<a href="/learn">
+<button>🎓 Learn & Earn</button>
+</a>
+
+</div>
+
+
+</div>
+ 
+<script>
+fetch("/daily_notification")
+.then(response => response.text())
+.then(data => {
+    document.getElementById("notify-message").innerText = data;
+});
+</script>
+
+</body>
+</html>

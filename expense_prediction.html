@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Expense Prediction</title>
+</head>
+
+<body>
+
+<h2>AI Expense Prediction</h2>
+
+<form method="POST">
+    <label>Enter Current Expense:</label>
+    <input type="number" name="expense" required>
+    <button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+<h3>Predicted Next Month Expense: ₹ {{ prediction }}</h3>
+{% endif %}
+
+</body>
+</html>

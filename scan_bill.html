@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Bill</title>
+</head>
+<body>
+    <h1>Scan Your Bill</h1>
+
+    <form action="/scan_bill" method="POST" enctype="multipart/form-data">
+        <input type="file" name="bill" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if text %}
+        <h2>Extracted Text:</h2>
+        <pre>{{ text }}</pre>
+    {% endif %}
+
+    {% if amount %}
+        <h2>Detected Amount: ₹{{ amount }}</h2>
+    {% endif %}
+
+    {% if filename %}
+        <h2>Uploaded File:</h2>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="300">
+    {% endif %}
+
+</body>
+</html>

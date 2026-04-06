@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Finance Advisor Chatbot</title>
+
+<script>
+
+function sendMessage(){
+
+    let userText = document.getElementById("msg").value;
+
+    let chatbox = document.getElementById("chat");
+
+    chatbox.innerHTML += "<p><b>You:</b> " + userText + "</p>";
+
+    fetch("/get",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/x-www-form-urlencoded"
+        },
+        body:"msg=" + userText
+    })
+    .then(response => response.text())
+    .then(data =>{
+        chatbox.innerHTML += "<p><b>Bot:</b> " + data + "</p>";
+    });
+
+    document.getElementById("msg").value="";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>🤖 Finance Advisor Chatbot</h2>
+
+<div id="chat" style="border:1px solid black;height:300px;width:400px;overflow:auto;"></div>
+
+<br>
+
+<input type="text" id="msg" placeholder="Type message">
+
+<button onclick="sendMessage()">Send</button>
+
+<br><br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

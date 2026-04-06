@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Saving Advisor</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef2f7;
+text-align:center;
+}
+
+.container{
+background:white;
+width:400px;
+margin:auto;
+margin-top:60px;
+padding:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+input{
+margin:10px;
+padding:8px;
+width:80%;
+}
+
+button{
+padding:10px;
+background:#007bff;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🤖 AI Saving Advisor</h1>
+
+<div class="container">
+
+<input id="income" placeholder="Monthly Income"><br>
+<input id="expense" placeholder="Monthly Expense"><br>
+
+<button onclick="getAdvice()">Get AI Advice</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+
+function getAdvice(){
+
+fetch("/saving_ai",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+income:document.getElementById("income").value,
+expense:document.getElementById("expense").value
+})
+})
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("result").innerText=data.advice;
+});
+
+}
+
+</script>
+
+</body>
+</html>
